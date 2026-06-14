@@ -1,10 +1,7 @@
-FROM node:20-alpine
+FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install
+COPY generate.py .
 
-COPY report.js .
-
-CMD ["node", "report.js"]
+CMD ["python", "generate.py", "/data"]
